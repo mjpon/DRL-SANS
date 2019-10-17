@@ -1,0 +1,24 @@
+{
+  "name": "drl-sans",
+  "version": "1.0.0",
+  "description": "Start of the project for the quarter in the open source tool with GANS",
+  "main": "index.js",
+  "dependencies": {
+    "apicalypse": "^0.1.6",
+    "axios": "^0.19.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CT2B145/DRL-SANS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CT2B145/DRL-SANS/issues"
+  },
+  "homepage": "https://github.com/CT2B145/DRL-SANS#readme"
+}
