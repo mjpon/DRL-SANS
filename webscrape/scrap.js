@@ -17,7 +17,7 @@ const requestOptions = {
 
 const response = function(){
     return apicalypse(requestOptions)
-    .fields('fields name,platforms')
+    .fields('name,platforms')
     .limit(50)    
     .query('platforms = 48')
     // After setting the baseURL in the requestOptions,
