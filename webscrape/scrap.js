@@ -1,29 +1,17 @@
-const apicalypse = require("apicalypse")
+var unirest = require("unirest");
 
-const requestOptions = {
-    queryMethod: 'url',
-    method: 'post', // The default is `get`
-    baseURL: 'https://api-v3.igdb.com/',
-    headers: {
-        'user-key': '65870b1858a85d7e30df9a6d9c40fdd0'
-    },
-    responseType: 'json',
-    timeout: 1000, // 1 second timeout
-    // auth: { // Basic auth
-    //     username: 'janedoe',
-    //     password: 's00pers3cret'
-    // }
-};
+var req = unirest("GET", "https://api-v3.igdb.com/games");
 
-const response = function(){
-    return apicalypse(requestOptions)
-    .fields('name,platforms')
-    .limit(50)    
-    .query('platforms = 48')
-    // After setting the baseURL in the requestOptions,
-    // you can just use an endpoint in the request
-    .request('/games'); 
+req.headers({
+  "Postman-Token": "4097a55e-0f58-417e-bff6-ce19f2f58e5e",
+  "cache-control": "no-cache",
+  "user-key": "65870b1858a85d7e30df9a6d9c40fdd0"
+});
 
-} 
+  req.send("fields name,platforms;\nwhere platforms = 48;\n");
 
-console.log(JSON.stringify(response, null, 2))
+req.end(function (res) {
+  if (res.error) throw new Error(res.error);
+
+  console.log(res.body);
+});
