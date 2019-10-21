@@ -17,11 +17,20 @@ req.headers({
   "Content-Type": "text/plain",
   "user-key": "65870b1858a85d7e30df9a6d9c40fdd0"
 });
-// platforms 48 is for the PS4 only, limit because we are limited to 50 request
-  req.send("fields name,platforms;\nwhere platforms = 48;\noffset 49;\nlimit 50;\n");
+// platforms 48 is for the PS4 only, limit because we are limited to 50 requests
+
+req.send("fields name,platforms;\nwhere platforms = 48;\noffset 49;\nlimit 50;\n");
 
 req.end(function (res) {
   if (res.error) throw new Error(res.error);
 
   console.log(res.body);
-});
+  i= 0;
+  while(i<res.body.length){
+    console.log(res.body[i].id + "    " + i);
+    i++
+  } 
+
+}
+
+);
