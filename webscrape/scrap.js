@@ -2,7 +2,7 @@ const apicalypse = require("apicalypse")
 
 const requestOptions = {
     queryMethod: 'url',
-    method: 'post', // The default is `get`
+    method: 'get', // The default is `get`
     baseURL: 'https://api-v3.igdb.com/',
     headers: {
         'user-key': '65870b1858a85d7e30df9a6d9c40fdd0'
