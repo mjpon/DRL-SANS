@@ -40,6 +40,16 @@ req.end(function (res) {
 
   console.log(data)
   fs.writeFile('out.csv', data, 'utf8', function (err) {
+    flags: 'a'
+    if (err) {
+      console.log('Some error occured - file either not saved or corrupted file saved.');
+    } else{
+      console.log('It\'s saved!');
+    }
+  });
+
+  fs.writeFile('out.csv', data, 'utf8', function (err) {
+    flags: 'a'
     if (err) {
       console.log('Some error occured - file either not saved or corrupted file saved.');
     } else{
