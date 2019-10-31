@@ -1,5 +1,8 @@
 var unirest = require("unirest");
-
+const fastcsv = require('fast-csv');
+const fs = require('fs');
+const ws = fs.createWriteStream("out.csv");
+// https://nodejs.org/api/fs.html#fs_fs_open_path_flags_mode_callback 
 var req = unirest("GET", "https://api-v3.igdb.com/games");
 //  you may need to add your own token value + key since this is Mitchell's personal key
 // WHICH HAS A LIMIT TO 10K every month
@@ -26,11 +29,23 @@ req.end(function (res) {
 
   console.log(res.body);
   i= 0;
+
+  
+  data = []
   while(i<res.body.length){
     console.log(res.body[i].id + "    " + i);
-    i++
+    data.push(res.body[i].id)
+    i++   
   } 
 
+  console.log(data)
+  fs.writeFile('out.csv', data, 'utf8', function (err) {
+    if (err) {
+      console.log('Some error occured - file either not saved or corrupted file saved.');
+    } else{
+      console.log('It\'s saved!');
+    }
+  });
 }
 
 );
