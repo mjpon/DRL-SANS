@@ -22,7 +22,7 @@ req.headers({
 });
 // platforms 48 is for the PS4 only, limit because we are limited to 50 requests
 
-req.send("fields name,platforms;\nwhere platforms = 48;\noffset 49;\nlimit 50;\n");
+req.send("fields name,platforms;\nwhere platforms = 48;\noffset 0;\nlimit 50;\n");
 
 req.end(function (res) {
   if (res.error) throw new Error(res.error);
