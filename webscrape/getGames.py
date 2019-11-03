@@ -32,12 +32,17 @@ def scrape(platform, offset, limit):
 if __name__ == '__main__':
     arr = []
     for i in range(0, 1000, 50):
-        solution = scrape(22, i, 50)
+        solution = scrape(20, i, 50)
         if solution:
             arr.append(solution)
+            # print(solution)
 
-    print(arr)
-    resultFile = open("results_gameBoyColor.csv",'w', newline='')
+    
+    # print(len(arr))
+
+
+    # # print(arr)
+    resultFile = open("results_ds.csv",'w', newline='')
     wr = csv.writer(resultFile, delimiter=";")
     for items in arr:
         wr.writerows(map(lambda x: [x], items))

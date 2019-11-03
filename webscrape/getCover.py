@@ -38,7 +38,7 @@ def cover(gameID):
         url = 'http://images.igdb.com/igdb/image/upload/t_1080p/' + image_id + '.jpg'
         print('getting response for: ' + str(image_id))
         resp = requests.get(url, stream=True)
-        local_file = open('./images_gameboyColor/' + image_id + '.jpg', 'wb')
+        local_file = open('./images_ds/' + image_id + '.jpg', 'wb')
         resp.raw.decode_content = True
         # Copy the response stream raw data to local image file.
         shutil.copyfileobj(resp.raw, local_file)
@@ -50,7 +50,7 @@ def cover(gameID):
 
 if __name__ == '__main__':
     gameID = []
-    with open('results_gameboyColor.csv', 'r') as csvFile:
+    with open('results_ds.csv', 'r') as csvFile:
         reader = csv.reader(csvFile)
         for row in reader:
             gameID.append(row[0])
